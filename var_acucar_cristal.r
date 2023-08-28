@@ -92,6 +92,24 @@ ggplot(data = precos_final, aes(x=Data, y=retornos)) +
   ylim(-6, 4) +
   ggtitle("Retornos Açúcar Cristal\n")
 
+# HISTOGRAMA
+histog = ggplot(data = precos_final, aes(y=retornos)) +
+  geom_histogram(color = "blue", fill="blue", binwidth=1) +
+  labs(
+    x="Quantidade de casos\n", y="\nVariação %\n"
+  ) +
+  theme_minimal() +
+  theme(
+    plot.margin = margin(2, 2, 2, 2, "cm"),
+    plot.title = element_text(hjust = 0.5, size = 60),
+    axis.text = element_text(size = 30, color = "black"),
+    axis.title = element_text(size = 25, color = "black")
+  ) + 
+  ylim(-6, 6) +
+  ggtitle("Retornos Açúcar Cristal\n")
+
+histog + coord_flip()
+
 #ggarrange(plot_precos, plot_retornos, 
 #          labels = c("A", "B"),
 #          ncol = 2, nrow = 1)
